@@ -1,0 +1,310 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+/* :root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* [data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+
+:root {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 限制文档内容高度并可滚动 */
+.docMarkdown {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-height: 80vh;
+  /* 内容区高度 80% 屏幕 */
+  overflow-y: auto;
+  padding-bottom: 60px;
+  /* 留空间给底部按钮 */
+}
+
+/* 固定底部翻页按钮 */
+.docPagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+/* 强制高度以启用滚动（调试后删掉 border 与 !important） */
+.docMarkdown,
+.theme-doc-markdown,
+.theme-doc .theme-doc-markdown,
+.theme-doc .markdown,
+.markdown {
+  box-sizing: border-box;
+  height: calc(100vh - 250px) !important;
+  max-height: calc(100vh - 250px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+
+  /* 增加内部空隙 */
+  padding: 12px 12px 12px 12px !important;
+  /* 上右下左 */
+
+  margin-top: 0.2em;
+  margin-bottom: 0.2em !important;
+  color: rgb(51, 51, 51);
+  background-image: var(--Paper-overlay);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+  background-color: rgb(255, 255, 255) !important;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  --Paper-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+/* 文档正文段落 p 标签 */
+.docMarkdown,
+.theme-doc-markdown,
+.theme-doc .theme-doc-markdown,
+.theme-doc .markdown,
+.markdown p {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1a1a1a;
+  /* 文字颜色 */
+  font-size: 1rem;
+  /* 字号 */
+  margin-bottom: 0.5rem;
+  /* 段落底部间距 */
+}
+
+
+/* 夜间模式文档容器 */
+[data-theme="dark"] .docMarkdown,
+[data-theme="dark"] .theme-doc-markdown,
+[data-theme="dark"] .theme-doc .theme-doc-markdown,
+[data-theme="dark"] .theme-doc .markdown,
+[data-theme="dark"] .markdown {
+  background-color: #1e1e1e !important;
+  /* 夜间背景色 */
+  color: #e0e0e0 !important;
+  /* 正文字体颜色 */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.3) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.25) 0px 1px 5px 0px;
+}
+
+/* 夜间模式段落文字 */
+[data-theme="dark"] .docMarkdown p,
+[data-theme="dark"] .theme-doc-markdown p,
+[data-theme="dark"] .theme-doc .theme-doc-markdown p,
+[data-theme="dark"] .theme-doc .markdown p,
+[data-theme="dark"] .markdown p {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  color: #e0e0e0;
+  /* 夜间段落文字颜色 */
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.docusaurus-mt-lg {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.menu__link {
+  color: #494949;
+  /* 自定义颜色，比如深灰色 */
+  font-weight: 500;
+}
+
+/* 鼠标悬停时 */
+.menu__link:hover {
+  color: #0070f3;
+  /* 自定义悬停颜色，比如蓝色 */
+}
+
+/* 当前选中/激活文档 */
+.menu__link--active {
+  color: #0070f3;
+  /* 自定义激活颜色，比如红色 */
+  font-weight: bold;
+  /* 可选，加粗显示 */
+}
+
+/* 夜间模式下的侧边栏菜单文字 */
+[data-theme="dark"] .menu__link {
+  color: #cccccc;
+  /* 深灰色或浅灰色，看夜间背景 */
+  font-weight: 500;
+}
+
+/* 鼠标悬停时 */
+[data-theme="dark"] .menu__link:hover {
+  color: #5aaaff;
+  /* 夜间模式悬停颜色，比如亮蓝色 */
+}
+
+/* 夜间模式下 Navbar 当前选中链接 */
+[data-theme="dark"] .breadcrumbs__item--active span {
+  color: #5aaaff;
+  /* 夜间模式激活颜色，柔和蓝色 */
+  font-weight: bold;
+}
+
+[data-theme="dark"] .pagination-nav__label {
+  color: #5aaaff;
+  /* 夜间模式激活颜色，柔和蓝色 */
+  font-weight: bold;
+}
+
+[data-theme="dark"] .table-of-contents__link--active {
+  color: #5aaaff;
+  /* 夜间模式激活颜色，柔和蓝色 */
+  font-weight: bold;
+}
+
+[data-theme="dark"] .navbar__link--active {
+  color: #5aaaff;
+  /* 夜间模式激活颜色，柔和蓝色 */
+  font-weight: bold;
+}
+
+
+
+
+/* 当前选中/激活文档 */
+[data-theme="dark"] .menu__link--active {
+  color: #5aaaff;
+  /* 夜间模式激活颜色 */
+  font-weight: bold;
+  /* 可选，加粗显示 */
+}
+
+
+/* 一级标题 H1 样式 */
+.docMarkdown h1,
+.theme-doc .markdown h1,
+.theme-doc-markdown h1,
+.markdown h1 {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em !important;
+}
+
+/* 二级标题 H2 样式 */
+.docMarkdown h2,
+.theme-doc .markdown h2,
+.theme-doc-markdown h2,
+.markdown h2 {
+  font-family: "Kaiti SC", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+.menu__link--sublist-caret::after {
+  content: "";
+  margin-left: auto;
+  min-width: 1rem;
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
+  filter: var(--ifm-menu-link-sublist-icon-filter);
+  height: 1.25rem;
+  transform: rotate(180deg);
+  width: 1.25rem;
+  transition: transform var(--ifm-transition-fast) linear;
+}
+
+/* 外层 hover 触发区 */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px dashed #0070f3;
+  /* 下划线提示 */
+  color: #0070f3;
+  /* 文字颜色（可调） */
+}
+
+/* 内层 tooltip 内容 */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 220px;
+  background: #fff;
+  /* 白色背景 */
+  color: #333;
+  /* 深灰文字 */
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  /* 圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* 阴影，卡片感 */
+  font-size: 0.9rem;
+  line-height: 1.4;
+
+  position: absolute;
+  z-index: 20;
+  bottom: 125%;
+  /* 显示在文字上方 */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 小三角箭头 */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  /* 白色箭头 */
+}
+
+/* 悬停时显示 */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
